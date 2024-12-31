@@ -1,5 +1,5 @@
 {
-  "presets": [ "@babel/react", [ "@babel/env" ] ],
+  "presets": [ "@babel/react", [ "@babel/preset-env" ] ],
   "plugins": [
     "react-hot-loader/babel",
     "@babel/plugin-proposal-object-rest-spread",
@@ -9,7 +9,7 @@
   ],
   "env": {
     "test": {
-      "presets": [ "@babel/react", [ "@babel/env" ] ],
+      "presets": [ "@babel/react", [ "@babel/preset-env" ] ],
       "plugins": [
         "@babel/plugin-proposal-object-rest-spread",
         "@babel/plugin-proposal-class-properties",
@@ -20,7 +20,7 @@
     "production": {
       "presets": [
         "@babel/react",
-        [ "@babel/env" ],
+        [ "@babel/preset-env" ],
         "minify"
       ],
       "plugins": [
