@@ -21,10 +21,10 @@ import shouldPromptBeVisible from './utils/shouldPromptBeVisible'
 
 export default class Terminal extends Component {
   constructor (props) {
-    super(props);
+    super(props)
 
-    const storedHistory = localStorage.getItem('terminalHistory');
-    const initialHistory = storedHistory ? JSON.parse(storedHistory) : [];
+    const storedHistory = localStorage.getItem('react-console-emulator-history')
+    const initialHistory = storedHistory ? JSON.parse(storedHistory) : []
     
     this.state = {
       commands: {},
@@ -108,16 +108,20 @@ export default class Terminal extends Component {
   /* istanbul ignore next: Covered by interactivity tests */
   pushToHistory = rawInput => {
     const { history } = this.state
+
+    // If the command is repeated, don't do anything
+    if (rawInput === history[history.length - 1]) return
+
     history.push(rawInput)
 
-    // Limit the number of commands remembered to the last 100
-    if (history.length > 100) {
-      history.splice(0, history.length - 100);
+    // Limit the number of commands remembered to the last 50
+    if (history.length > 50) {
+      history.splice(0, history.length - 50)
     }
 
     // Persist the updated history
     this.setState({ history, historyPosition: null }, () => {
-      localStorage.setItem('terminalHistory', JSON.stringify(this.state.history));
+      localStorage.setItem('react-console-emulator-history', JSON.stringify(this.state.history))
     });
   }
 
