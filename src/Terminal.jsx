@@ -21,11 +21,15 @@ import shouldPromptBeVisible from './utils/shouldPromptBeVisible'
 
 export default class Terminal extends Component {
   constructor (props) {
-    super(props)
+    super(props);
+
+    const storedHistory = localStorage.getItem('terminalHistory');
+    const initialHistory = storedHistory ? JSON.parse(storedHistory) : [];
+    
     this.state = {
       commands: {},
       stdout: [],
-      history: [],
+      history: initialHistory,
       historyPosition: null,
       previousHistoryPosition: null,
       processing: false
@@ -105,7 +109,16 @@ export default class Terminal extends Component {
   pushToHistory = rawInput => {
     const { history } = this.state
     history.push(rawInput)
-    this.setState({ history: history, historyPosition: null })
+
+    // Limit the number of commands remembered to the last 100
+    if (history.length > 100) {
+      history.splice(0, history.length - 100);
+    }
+
+    // Persist the updated history
+    this.setState({ history, historyPosition: null }, () => {
+      localStorage.setItem('terminalHistory', JSON.stringify(this.state.history));
+    });
   }
 
   getStdout = () => {
