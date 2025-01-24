@@ -160,11 +160,6 @@ export default class Terminal extends Component {
 
       if (!this.props.noHistory) this.pushToHistory(rawInput)
 
-      if (!this.props.noEchoBack) {
-        // Mimic native terminal by echoing command back
-        this.pushToStdout(constructEcho(this.props.promptLabel || '$', rawInput, this.props), { isEcho: true })
-      }
-
       if (rawInput) {
         const input = rawInput.split(' ')
         const rawCommand = input.splice(0, 1)[0] // Removed portion is returned...
@@ -175,6 +170,12 @@ export default class Terminal extends Component {
         commandResult.args = args
 
         const { exists, command } = commandExists(this.state.commands, rawCommand, this.props.ignoreCommandCase)
+        const cmd = this.state.commands[command]
+
+        if (!this.props.noEchoBack) {
+          // Mimic native terminal by echoing command back
+          this.pushToStdout(constructEcho(this.props.promptLabel || '$', isAsync(cmd.fn) ? 'Processing...' : rawInput, this.props), { isEcho: true })
+        }
 
         if (!exists) {
           this.pushToStdout(this.props.errorText
@@ -182,7 +183,6 @@ export default class Terminal extends Component {
             : `Command '${rawCommand}' not found!`
           )
         } else {
-          const cmd = this.state.commands[command]
           const res = await cmd.fn(...args)
 
           this.pushToStdout(res)
@@ -290,4 +290,8 @@ export default class Terminal extends Component {
       </div>
     )
   }
+}
+
+function isAsync(func) {
+  return func.constructor.name === 'AsyncFunction';
 }

@@ -1,5 +1,12 @@
 <img src=".github/logo.png" height="250px">
 
+# Steps to build in modern Windows environment
+
+- nvm use 14
+- npx babel src --out-dir dist
+- npx webpack --mode production
+- npm pack
+
 # react-console-emulator
 
 ![Version](https://img.shields.io/npm/v/react-console-emulator) ![License](https://img.shields.io/npm/l/react-console-emulator) ![NPM downloads](https://img.shields.io/npm/dw/react-console-emulator) ![NPM bundle size](https://img.shields.io/bundlephobia/min/react-console-emulator) ![CircleCI](https://img.shields.io/circleci/build/github/linuswillner/react-console-emulator/master) ![Codecov](https://img.shields.io/codecov/c/github/linuswillner/react-console-emulator) 
