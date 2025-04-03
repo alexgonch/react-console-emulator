@@ -3,7 +3,7 @@
 # Steps to build in modern Windows environment
 
 - nvm use 14
-- npx babel src --out-dir dist
+- npx babel src --out-dir dist (stop here if packing is not needed)
 - npx webpack --mode production
 - npm pack
 
