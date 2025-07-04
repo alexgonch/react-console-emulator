@@ -1,11 +1,28 @@
 <img src=".github/logo.png" height="250px">
 
-# Steps to build in modern Windows environment
+# Steps to build in a modern Windows environment
 
-- nvm use 14
-- npx babel src --out-dir dist (stop here if packing is not needed)
-- npx webpack --mode production
-- npm pack
+1. Use Node.js version 14:
+   ```bash
+   nvm use 14
+   ```
+2. Transpile your source with Babel (stop here if you don't need a packed tarball):
+   ```bash
+   npx babel src --out-dir dist
+   ```
+3. Bundle with Webpack for production:
+   ```bash
+   npx webpack --mode production
+   ```
+4. Create an npm package tarball:
+   ```bash
+   npm pack
+   ```
+5. Upgrade the dependency in your consuming project:
+   ```bash
+   bun remove react-console-emulator
+   bun add github:alexgonch/react-console-emulator
+   ```
 
 # react-console-emulator
 
