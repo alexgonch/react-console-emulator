@@ -1,5 +1,3 @@
-<img src=".github/logo.png" height="250px">
-
 # Steps to build in a modern Windows environment
 
 1. Use Node.js version 14:
