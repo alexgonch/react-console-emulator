@@ -11,18 +11,9 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
-  return a;
-};
 
 var styleTypes = {
   style: _propTypes["default"].object,
@@ -79,29 +70,4 @@ var messageTypes = {
 
 var _default = _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, styleTypes), classNameTypes), optionTypes), labelTypes), commandTypes), messageTypes);
 
-var _default2 = _default;
-exports["default"] = _default2;
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(styleTypes, "styleTypes", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\defs\\types\\Terminal.js");
-  reactHotLoader.register(classNameTypes, "classNameTypes", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\defs\\types\\Terminal.js");
-  reactHotLoader.register(optionTypes, "optionTypes", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\defs\\types\\Terminal.js");
-  reactHotLoader.register(labelTypes, "labelTypes", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\defs\\types\\Terminal.js");
-  reactHotLoader.register(commandTypes, "commandTypes", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\defs\\types\\Terminal.js");
-  reactHotLoader.register(messageTypes, "messageTypes", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\defs\\types\\Terminal.js");
-  reactHotLoader.register(_default, "default", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\defs\\types\\Terminal.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
+exports["default"] = _default;

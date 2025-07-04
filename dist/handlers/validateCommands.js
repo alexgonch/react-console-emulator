@@ -13,19 +13,18 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _commandExists2 = _interopRequireDefault(require("../utils/commandExists"));
 
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
-  return a;
-};
-
+/**
+ * @param {Object} commands Command definitions
+ * @param {Function} helpFn Function to display default help output
+ * @param {Function} clearFn Function to clear the screen
+ * @param {Object} options
+ * @param {Object} options.noDefaults Whether to register default commands or not
+ * @param {Object} options.ignoreCommandCase Whether to match command names case-insensitively or not
+*/
 var _default = function _default(commands, helpFn, clearFn, options) {
   var defaultCommands = {
     help: {
@@ -71,31 +70,4 @@ var _default = function _default(commands, helpFn, clearFn, options) {
   return validCommands;
 };
 
-/**
- * @param {Object} commands Command definitions
- * @param {Function} helpFn Function to display default help output
- * @param {Function} clearFn Function to clear the screen
- * @param {Object} options
- * @param {Object} options.noDefaults Whether to register default commands or not
- * @param {Object} options.ignoreCommandCase Whether to match command names case-insensitively or not
-*/
-var _default2 = _default;
-exports["default"] = _default2;
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(_default, "default", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\handlers\\validateCommands.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
+exports["default"] = _default;

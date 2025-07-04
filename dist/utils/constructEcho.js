@@ -15,15 +15,18 @@ var _Terminal = _interopRequireDefault(require("../defs/styles/Terminal"));
 
 var _TerminalMessage = _interopRequireDefault(require("../defs/styles/TerminalMessage"));
 
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
-  return a;
-};
-
+/**
+ * Constructs command echo based on user's styling options
+ * @param promptLabel - Prompt label element
+ * @param rawInput - Raw command input
+ * @param stylingProps - {
+ *  styleEchoBack: string
+ *  promptLabelClassName: string,
+ *  promptLabelStyle: object,
+ *  inputTextClassName: string,
+ *  inputTextStyle: object
+ * }
+ */
 var _default = function _default(promptLabel, rawInput, stylingProps) {
   var sources = {
     echo: {
@@ -81,35 +84,4 @@ var _default = function _default(promptLabel, rawInput, stylingProps) {
   return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("span", styles.label, promptLabel, " "), /*#__PURE__*/_react["default"].createElement("span", styles.text, rawInput));
 };
 
-/**
- * Constructs command echo based on user's styling options
- * @param promptLabel - Prompt label element
- * @param rawInput - Raw command input
- * @param stylingProps - {
- *  styleEchoBack: string
- *  promptLabelClassName: string,
- *  promptLabelStyle: object,
- *  inputTextClassName: string,
- *  inputTextStyle: object
- * }
- */
-var _default2 = _default;
-exports["default"] = _default2;
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(_default, "default", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\utils\\constructEcho.jsx");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
+exports["default"] = _default;

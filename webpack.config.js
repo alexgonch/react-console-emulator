@@ -79,7 +79,6 @@ module.exports = {
 
   // Entry point
   entry: [
-    'react-hot-loader/patch',
     path.join(__dirname, '/demo/index.jsx')
   ],
 
@@ -113,7 +112,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      'react-dom': '@hot-loader/react-dom' // DOM patches for react-hot-loader
       // Internal shortcuts
     },
     fallback: {

@@ -11,15 +11,15 @@ var _cleanArray = _interopRequireDefault(require("../utils/cleanArray"));
 
 var _sendCursorToEnd = _interopRequireDefault(require("../utils/sendCursorToEnd"));
 
-(function () {
-  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;
-  enterModule && enterModule(module);
-})();
-
-var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal["default"].signature : function (a) {
-  return a;
-};
-
+/**
+ * Scrolls command history in a given direction
+ * @param {String} direction Direction to scroll in ('up' or 'down')
+ * @param {Object} options
+ * @param {Array} options.history - Array of previous inputs from the user
+ * @param {Number} options.historyPosition - Current position in the history
+ * @param {Number} options.previousHistoryPosition - Previous position in the history
+ * @param {React.Ref} options.terminalInput - Ref to the terminal input element
+ */
 var _default = function _default(direction, options) {
   var history = options.history,
       historyPosition = options.historyPosition,
@@ -109,32 +109,4 @@ var _default = function _default(direction, options) {
   }
 };
 
-/**
- * Scrolls command history in a given direction
- * @param {String} direction Direction to scroll in ('up' or 'down')
- * @param {Object} options
- * @param {Array} options.history - Array of previous inputs from the user
- * @param {Number} options.historyPosition - Current position in the history
- * @param {Number} options.previousHistoryPosition - Previous position in the history
- * @param {React.Ref} options.terminalInput - Ref to the terminal input element
- */
-var _default2 = _default;
-exports["default"] = _default2;
-;
-
-(function () {
-  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(_default, "default", "C:\\Users\\Test\\Work\\react-console-emulator\\src\\handlers\\scrollHistory.js");
-})();
-
-;
-
-(function () {
-  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
-  leaveModule && leaveModule(module);
-})();
+exports["default"] = _default;
